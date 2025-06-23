@@ -1,11 +1,22 @@
 // 1. Frete grátis 
 function calculaFrete() {
-  const total = Number(document.getElementById('totalInput').value);
+  const valorTotal = Number(document.getElementById('totalInput').value);
   let mensagem;
 
   // Se o total for maior ou igual a 150, a mensagem deve ser 'Frete grátis! 🎉'
-  // Se o total for maior ou igual a 0 (mas menor que 150), a mensagem deve ser 'Frete: R$ 20.00 😅'
-  // Se o valor for negativo ou inválido, a mensagem deve ser 'Valor inválido.'
+  if (valorTotal >= 150) {
+    mensagem = 'Frete grátis! 🎉'
+      // Se o total for maior ou igual a 0 (mas menor que 150), a mensagem deve ser 'Frete: R$ 20.00 😅'
+
+  }else if (valorTotal > 0){
+    mensagem = "Frete: R$ 20.00 😅"
+     // Se o valor for negativo ou inválido, a mensagem deve ser 'Valor inválido.'
+  } else {
+    mensagem = "Valor inválido."
+
+  }
+
+ 
 
   document.getElementById('shippingResult').textContent = mensagem;
 }
@@ -15,9 +26,26 @@ function mensagemDeBoasVindas() {
   const tipo = document.getElementById('userInput').value;
   let mensagem;
 
+  switch (tipo) {
+    case "convidada":
+      mensagem = "Oi, visitante! Crie uma conta pra ganhar descontos.";
+      break;
+    case "registrada":
+      mensagem = "Bem-vinda de volta!";
+      break;  
+    case "premium":
+      mensagem = "Olá, cliente premium! Frete grátis garantido.";
+      break;
+    case "admin":
+      mensagem = "Admin logado. Painel disponível.";
+      break;
+    default:
+      mensagem = "Tipo desconhecido.";
+      break;
+  }
   // Usar switch case para definir a mensagem com base no tipo:
-  // - 'guest': "Oi, visitante! Crie uma conta pra ganhar descontos."
-  // - 'registered': "Bem-vinda de volta!"
+  // - 'convidada': "Oi, visitante! Crie uma conta pra ganhar descontos."
+  // - 'resgistrada': "Bem-vinda de volta!"
   // - 'premium': "Olá, cliente premium! Frete grátis garantido."
   // - 'admin': "Admin logado. Painel disponível."
   // Qualquer outro valor: "Tipo desconhecido."

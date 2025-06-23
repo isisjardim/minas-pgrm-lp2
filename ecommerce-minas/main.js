@@ -59,6 +59,14 @@ function podeFazerCheckout() {
   const pagamento = document.getElementById('paymentOk').checked;
   let mensagem;
 
+  if(items && pagamento) {
+    mensagem = 'Compra liberada 🚀';
+  } else if (items || pagamento) {
+    mensagem = 'Compra bloqueada. Verifique carrinho/pagamento.';
+  } else{
+
+  }  
+
   // Se os dois forem verdadeiros (items e pagamento), a mensagem deve ser 'Compra liberada 🚀'
   // Caso contrário, deve ser 'Compra bloqueada. Verifique carrinho/pagamento.'
 
@@ -70,6 +78,12 @@ function temDescontoEspecial() {
   const primeiraCompra = document.getElementById('firstPurchase').checked;
   const cupomVip       = document.getElementById('hasVipCoupon').checked;
   let mensagem;
+  
+  if (primeiraCompra || cupomVip) {
+    mensagem = 'Desconto especial aplicado! 🎁';
+  } else {
+    mensagem = 'Desconto não disponível.';
+  }
 
   // Se pelo menos um for verdadeiro (primeiraCompra ou cupomVip), a mensagem deve ser 'Desconto especial aplicado! 🎁'
   // Caso contrário, deve ser 'Desconto não disponível.'
